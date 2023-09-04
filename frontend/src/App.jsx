@@ -1,4 +1,21 @@
+import { Container } from 'react-bootstrap';
+
+// Components
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 function App() {
-  return <div>Welcome to ProShop</div>;
+  return (
+    <>
+      <Header />
+      <main className="py-3">
+        <Container>
+          <h1>Welcome to ProShop</h1>
+        </Container>
+      </main>
+      <Footer />
+    </>
+  );
 }
+
 export default App;
