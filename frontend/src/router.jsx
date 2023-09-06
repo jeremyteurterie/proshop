@@ -7,14 +7,16 @@ import {
 
 import App from './App';
 
-// Components
+// Screens
 import HomeScreen from './screens/HomeScreen';
+import ProductScreen from './screens/ProductScreen';
 
 const Routes = createBrowserRouter(
   createRoutesFromElements(
     <>
       <Route path="/" element={<App />}>
         <Route index={true} path="/" element={<HomeScreen />}></Route>
+        <Route path="/product/:id" element={<ProductScreen />}></Route>
       </Route>
     </>
   )
