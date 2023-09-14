@@ -25,6 +25,7 @@ function PlaceOrderScreen() {
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
   const dispatch = useDispatch();
+
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({
@@ -37,7 +38,7 @@ function PlaceOrderScreen() {
         totalPrice: cart.totalPrice,
       }).unwrap();
       dispatch(clearCartItems());
-      navigate(`/order/${res._id}`);
+      navigate(`/order/${res.id}`);
     } catch (err) {
       toast.error(err);
     }
