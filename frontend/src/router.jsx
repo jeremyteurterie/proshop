@@ -5,6 +5,8 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 
+import PrivateRoute from './components/PrivateRoute';
+
 import App from './App';
 
 // Screens
@@ -24,7 +26,10 @@ const Routes = createBrowserRouter(
         <Route path="/cart" element={<CartScreen />}></Route>
         <Route path="/login" element={<LoginScreen />}></Route>
         <Route path="/register" element={<RegisterScreen />}></Route>
-        <Route path="/shipping" element={<ShippingScreen />}></Route>
+
+        <Route path="" element={<PrivateRoute />}>
+          <Route path="/shipping" element={<ShippingScreen />}></Route>
+        </Route>
       </Route>
     </>
   )
