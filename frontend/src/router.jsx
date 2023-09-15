@@ -4,9 +4,7 @@ import {
   Route,
   RouterProvider,
 } from 'react-router-dom';
-
 import PrivateRoute from './components/PrivateRoute';
-
 import App from './App';
 
 // Screens
