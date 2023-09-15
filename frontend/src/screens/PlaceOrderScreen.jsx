@@ -11,6 +11,7 @@ import { clearCartItems } from '../slices/cartSlice';
 
 function PlaceOrderScreen() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const cart = useSelector((state) => state.cart);
 
@@ -24,8 +25,6 @@ function PlaceOrderScreen() {
     }
   }, [cart.paymentMethod, cart.shippingAddress.address, navigate]);
 
-  const dispatch = useDispatch();
-
   const placeOrderHandler = async () => {
     try {
       const res = await createOrder({
@@ -38,7 +37,7 @@ function PlaceOrderScreen() {
         totalPrice: cart.totalPrice,
       }).unwrap();
       dispatch(clearCartItems());
-      navigate(`/order/${res.id}`);
+      navigate(`/order/${res._id}`);
     } catch (err) {
       toast.error(err);
     }
@@ -84,7 +83,7 @@ function PlaceOrderScreen() {
                           />
                         </Col>
                         <Col>
-                          <Link to={`/product/${item.product}`}>
+                          <Link to={`/products/${item.product}`}>
                             {item.name}
                           </Link>
                         </Col>
@@ -138,7 +137,7 @@ function PlaceOrderScreen() {
                 <Button
                   type="button"
                   className="btn-block"
-                  disabled={cart.cartItems === 0}
+                  disabled={cart.cartItems.length === 0}
                   onClick={placeOrderHandler}
                 >
                   Place Order
