@@ -5,6 +5,8 @@ import {
   RouterProvider,
 } from 'react-router-dom';
 import PrivateRoute from './components/PrivateRoute';
+import AdminRoute from './components/AdminRoute';
+
 import App from './App';
 
 // Screens
@@ -18,6 +20,7 @@ import PaymentScreen from './screens/PaymentScreen';
 import PlaceOrderScreen from './screens/PlaceOrderScreen';
 import OrderScreen from './screens/OrderScreen';
 import ProfileScreen from './screens/ProfileScreen';
+import OrderListScreen from './screens/admin/OrderListScreen';
 
 const Routes = createBrowserRouter(
   createRoutesFromElements(
@@ -35,6 +38,10 @@ const Routes = createBrowserRouter(
           <Route path="/placeorder" element={<PlaceOrderScreen />}></Route>
           <Route path="/order/:id" element={<OrderScreen />}></Route>
           <Route path="/profile" element={<ProfileScreen />}></Route>
+        </Route>
+
+        <Route path="" element={<AdminRoute />}>
+          <Route path="/admin/orderlist" element={<OrderListScreen />}></Route>
         </Route>
       </Route>
     </>
