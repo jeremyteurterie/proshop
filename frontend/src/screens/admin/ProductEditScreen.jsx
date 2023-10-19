@@ -116,7 +116,7 @@ function ProductEditScreen() {
               ></Form.Control>
             </Form.Group>
 
-            <Form.Group controlId="image">
+            <Form.Group controlId="image" className="my-2">
               <Form.Label>Image</Form.Label>
               <Form.Control
                 type="text"
@@ -126,7 +126,7 @@ function ProductEditScreen() {
               ></Form.Control>
               <Form.Control
                 type="file"
-                label="Choose File"
+                label="Choose file"
                 onChange={uploadFileHandler}
               ></Form.Control>
               {/* {loadingUpload && <Loader />} */}
